@@ -1,0 +1,32 @@
+{
+  "name": "loyaleradio",
+  "version": "1.0.0",
+  "description": "Radio for Discord",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github/Chronomly/LoyaleRadio"
+  },
+  "contributors": [
+    {
+      "name": "Chronomly",
+      "email": "chronomly@gmail.com",
+      "url": "https://chronomly.me"
+    },
+    {
+      "name": "Jdender~",
+      "email": "jdenderplays@gmail.com",
+      "url": "https://github.com/jdenderplays"
+    }
+  ],
+  "license": "AGPL-3.0",
+  "dependencies": {
+    "discord.js": "^11.4.2",
+    "discord.js-commando": "^0.10.0",
+    "sqlite": "^3.0.1",
+    "sqlite3": "^4.0.6"
+  }
+}
