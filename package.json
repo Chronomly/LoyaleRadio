@@ -1,32 +1,27 @@
 {
-  "name": "loyaleradio",
-  "version": "1.0.0",
-  "description": "Radio for Discord",
-  "main": "src/main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github/Chronomly/LoyaleRadio"
-  },
-  "contributors": [
-    {
-      "name": "Chronomly",
-      "email": "chronomly@gmail.com",
-      "url": "https://chronomly.me"
-    },
-    {
-      "name": "Jdender~",
-      "email": "jdenderplays@gmail.com",
-      "url": "https://github.com/jdenderplays"
-    }
-  ],
+  "name": "calamus",
+  "version": "0.0.0",
+  "main": "src/index.ts",
+  "repository": "https://github.com/jdenderplays/Calamus.git",
+  "author": "Jdender <jdenderplays@gmail.com>",
   "license": "AGPL-3.0",
+  "scripts": {
+    "up": "docker-compose up",
+    "down": "docker-compose down",
+    "restart": "docker-compose restart node",
+    "build": "docker-compose up --build"
+  },
   "dependencies": {
-    "discord.js": "^11.4.2",
-    "discord.js-commando": "^0.10.0",
-    "sqlite": "^3.0.1",
-    "sqlite3": "^4.0.6"
+    "@types/node": "^10.12.18",
+    "bind-decorator": "^1.0.11",
+    "discord.js": "discordjs/discord.js#master",
+    "importful": "^2.0.1",
+    "reflect-metadata": "^0.1.13",
+    "ts-node": "^7.0.1",
+    "typedi": "^0.8.0",
+    "typescript": "^3.2.4"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.32"
   }
 }
