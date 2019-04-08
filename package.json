@@ -4,11 +4,11 @@
   "description": "Radio for Discord",
   "main": "src/main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/main"
   },
   "repository": {
     "type": "git",
-    "url": "https://github/Chronomly/LoyaleRadio"
+    "url": "https://github.com/Chronomly/LoyaleRadio"
   },
   "contributors": [
     {
@@ -24,9 +24,13 @@
   ],
   "license": "AGPL-3.0",
   "dependencies": {
+    "child_process": "^1.0.2",
+    "common-tags": "^1.8.0",
     "discord.js": "^11.4.2",
     "discord.js-commando": "^0.10.0",
+    "opusscript": "0.0.6",
     "sqlite": "^3.0.1",
-    "sqlite3": "^4.0.6"
+    "sqlite3": "^4.0.6",
+    "ytdl-core": "^0.29.1"
   }
 }

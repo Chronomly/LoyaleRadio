@@ -1,20 +1,24 @@
 /* eslint-disable no-console */
 const commando = require('discord.js-commando');
+const Discord = require('discord.js');
 const path = require('path');
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
-const config = require('./config.json')
+const config = require('./config.json');
+const ms = require('ms');
 
 const client = new commando.Client({
 	owner: '251383432331001856',
 	commandPrefix: '.'
 });
+const Radio = require('./radio.js') (client);
 
 client
 	.on('error', console.error)
 	.on('warn', console.warn)
 	.on('debug', console.log)
 	.on('ready', () => {
+		client.Discord = Discord;
 		console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
 	})
 	.on('disconnect', () => { console.warn('Disconnected!'); })
@@ -58,13 +62,18 @@ client.registry
     .registerGroups([
         ['general', 'General'],
 		['radio', 'Radio'],
-        ['control', 'Bot Owners Only']
+		['support', 'Support'],
+		['control', 'Owners']
     ])
     .registerCommandsIn(path.join(__dirname, 'commands'))
     .registerDefaults();
 
+client.broadcast.on('end', () => {
+	client.radio.findSong()
+});
+
 client.on('ready', () => {
-    client.channels.get('539588610173698068').send('Ello mates! I\'m back online')
-    client.user.setS
+	client.radio.setupAutoBroadcast(client)
 })
+
 client.login(config.token);
