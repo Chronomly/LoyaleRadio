@@ -53,7 +53,7 @@ class Radio {
         this.client.broadcast.playStream(ytdl(songs[randomInt], { filter: 'audioonly' }));
         ytdl.getInfo(songs[randomInt]).then((info) => {
             let time = info.length_seconds
-            //100% Stack Overflow
+            // 100% Stack Overflow
             let minutes = Math.floor(time / 60);
             let seconds = time - minutes * 60;
             let hours = Math.floor(time / 3600);
