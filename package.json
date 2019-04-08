@@ -1,36 +1,36 @@
 {
-  "name": "loyaleradio",
-  "version": "1.0.0",
-  "description": "Radio for Discord",
-  "main": "src/main.js",
-  "scripts": {
-    "start": "node src/main"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Chronomly/LoyaleRadio"
-  },
   "contributors": [
     {
-      "name": "Chronomly",
       "email": "chronomly@gmail.com",
+      "name": "Chronomly",
       "url": "https://chronomly.me"
     },
     {
-      "name": "Jdender~",
       "email": "jdenderplays@gmail.com",
+      "name": "Jdender~",
       "url": "https://github.com/jdenderplays"
     }
   ],
-  "license": "AGPL-3.0",
   "dependencies": {
     "child_process": "^1.0.2",
     "common-tags": "^1.8.0",
     "discord.js": "^11.4.2",
     "discord.js-commando": "^0.10.0",
     "opusscript": "0.0.6",
-    "sqlite": "^3.0.1",
+    "sqlite": "^3.0.3",
     "sqlite3": "^4.0.6",
     "ytdl-core": "^0.29.1"
-  }
+  },
+  "description": "Radio for Discord",
+  "license": "AGPL-3.0",
+  "main": "src/main.js",
+  "name": "loyaleradio",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Chronomly/LoyaleRadio"
+  },
+  "scripts": {
+    "start": "node src/main"
+  },
+  "version": "1.0.0"
 }
