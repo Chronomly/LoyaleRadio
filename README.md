@@ -13,4 +13,4 @@ Also, check the list of [contributors](https://github.com/Chronomly/LoyaleRadio/
 
 ## License
 
-This project is licensed under the AGPL 3.0 License - see the [license](https://github.com/Chronomly/LoyaleRadio) file for details.
+This project is licensed under the GPL 3.0 License - see the [license](https://github.com/Chronomly/LoyaleRadio) file for details.
