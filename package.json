@@ -9,6 +9,11 @@
       "email": "jdenderplays@gmail.com",
       "name": "Jdender~",
       "url": "https://github.com/jdenderplays"
+    },
+    {
+      "email": "me@jonahsnider.ninja",
+      "name": "Jonah Snider",
+      "url": "https://jonahsnider.ninja/"
     }
   ],
   "dependencies": {
@@ -22,14 +27,24 @@
     "ytdl-core": "^0.29.1"
   },
   "description": "Radio for Discord",
+  "devDependencies": {
+    "@dice-discord/eslint-config": "^1.2.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4"
+  },
   "license": "AGPL-3.0",
   "main": "src/main.js",
   "name": "loyaleradio",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/Chronomly/LoyaleRadio"
   },
   "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "start": "node src/main"
   },
   "version": "1.0.0"
