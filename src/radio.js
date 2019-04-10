@@ -70,8 +70,9 @@ class Radio {
                 .setImage(info.thumbnail_url);
                 recordChannel.send(embed)
             recordChannel.send(embed)
+            console.log(info)
         })
-        console.log(info)
+        
     };
     
 };
