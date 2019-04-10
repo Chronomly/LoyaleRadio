@@ -52,28 +52,28 @@ class Radio {
     const recordChannel = this.client.channels.get("564538560108167172");
     const randomInt = Math.floor(Math.random() * songs.length) + 0;
     this.client.broadcast.playStream(ytdl(songs[randomInt], { filter: "audioonly" }));
-    ytdl.getInfo(songs[randomInt]).then(info => {
-      let time = info.length_seconds;
-      // 100% Stack Overflow
-      const minutes = Math.floor(time / 60);
-      const seconds = time - minutes * 60;
-      const hours = Math.floor(time / 3600);
-      time = time - hours * 3600;
-      function strPadLeft(string, pad, length) {
-        return (new Array(length + 1).join(pad) + string).slice(-length);
-      }
-      const finalTime = `${strPadLeft(minutes, "0", 2)}:${strPadLeft(seconds, "0", 2)}`;
-      // End 100% Stack Overflow
-      const embed = new this.client.Discord.RichEmbed()
-        .setAuthor("Now Playing:", this.client.user.avatarURL)
-        .setDescription(
-          `URL: ${info.video_url}\nTitle: ${info.title}\nAuthor: ${info.author.name}\nLength: ${finalTime}`
-        )
-        .setTimestamp()
-        .setImage(info.thumbnail_url);
-      recordChannel.send(embed);
-      recordChannel.send(embed);
-    });
-    console.log(info);
+    // ytdl.getInfo(songs[randomInt]).then(info => {
+    //   let time = info.length_seconds;
+    //   // 100% Stack Overflow
+    //   const minutes = Math.floor(time / 60);
+    //   const seconds = time - minutes * 60;
+    //   const hours = Math.floor(time / 3600);
+    //   time = time - hours * 3600;
+    //   function strPadLeft(string, pad, length) {
+    //     return (new Array(length + 1).join(pad) + string).slice(-length);
+    //   }
+    //   const finalTime = `${strPadLeft(minutes, "0", 2)}:${strPadLeft(seconds, "0", 2)}`;
+    //   // End 100% Stack Overflow
+    //   const embed = new this.client.Discord.RichEmbed()
+    //     .setAuthor("Now Playing:", this.client.user.avatarURL)
+    //     .setDescription(
+    //       `URL: ${info.video_url}\nTitle: ${info.title}\nAuthor: ${info.author.name}\nLength: ${finalTime}`
+    //     )
+    //     .setTimestamp()
+    //     .setImage(info.thumbnail_url);
+    //   recordChannel.send(embed);
+    //   recordChannel.send(embed);
+    // });
+    // console.log(info);
   }
 }
