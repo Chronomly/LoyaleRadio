@@ -2,7 +2,7 @@
 const commando = require('discord.js-commando');
 const { oneLine } = require("common-tags");
 
-module.exports = class InfoCommand extends commando.Command {
+module.exports = class RadioSourceCommand extends commando.Command {
   constructor(client) {
     super(client, {
       name: "source",
