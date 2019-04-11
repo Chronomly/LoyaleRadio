@@ -1,6 +1,7 @@
 # Loyale
 
 [![DeepScan grade](https://deepscan.io/api/teams/3387/projects/5027/branches/39181/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3387&pid=5027&bid=39181)
+[![Build Status](https://travis-ci.org/Chronomly/LoyaleRadio.svg?branch=master)](https://travis-ci.org/Chronomly/LoyaleRadio)
 
 Loyale is a Discord bot made using JavaScript and Discord.js. It are being actively developed with new features added and tested almost every week.
 
