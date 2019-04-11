@@ -1,8 +1,7 @@
-//eslint-disable-next-line
-const commando = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
 const { oneLine } = require("common-tags");
 
-module.exports = class RadioLeaveCommand extends commando.Command {
+module.exports = class RadioLeaveCommand extends Command {
   constructor(client) {
     super(client, {
       name: "leave",
@@ -18,7 +17,7 @@ module.exports = class RadioLeaveCommand extends commando.Command {
     });
   }
 
-  //eslint-disable-next-line class-methods-use-this
+  
   async run(msg) {
     if (msg.guild.voiceConnection) {
       msg.guild.voiceConnection.disconnect();

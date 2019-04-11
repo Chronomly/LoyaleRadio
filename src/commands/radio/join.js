@@ -1,8 +1,7 @@
-//eslint-disable-next-line
-const commando = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
 const { oneLine } = require("common-tags");
 
-module.exports = class RadioJoinCommand extends commando.Command {
+module.exports = class RadioJoinCommand extends Command {
   constructor(client) {
     super(client, {
       name: "join",
@@ -18,7 +17,7 @@ module.exports = class RadioJoinCommand extends commando.Command {
     });
   }
 
-  //eslint-disable-next-line class-methods-use-this
+  
   async run(msg) {
     this.client.radio.joinBroadcast(msg);
   }

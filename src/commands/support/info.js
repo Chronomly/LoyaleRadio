@@ -1,10 +1,9 @@
-//eslint-disable-next-line
-const commando = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
 const { oneLine } = require("common-tags");
 const { RichEmbed } = require("discord.js");
 const os = require("os");
 
-module.exports = class InfoCommand extends commando.Command {
+module.exports = class InfoCommand extends Command {
   constructor(client) {
     super(client, {
       name: "info",
@@ -21,7 +20,7 @@ module.exports = class InfoCommand extends commando.Command {
     });
   }
 
-  //eslint-disable-next-line class-methods-use-this
+  
   async run(message) {
     let host;
     if (os.hostname() === "ubuntuServer") {

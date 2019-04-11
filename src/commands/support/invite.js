@@ -1,8 +1,7 @@
-//eslint-disable-next-line
-const commando = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
 const { oneLine } = require("common-tags");
 
-module.exports = class InviteCommand extends commando.Command {
+module.exports = class InviteCommand extends Command {
   constructor(client) {
     super(client, {
       name: "invite",
@@ -20,7 +19,7 @@ module.exports = class InviteCommand extends commando.Command {
     });
   }
 
-  //eslint-disable-next-line class-methods-use-this
+  
   async run(message) {
     message.channel.send(
       "Click here to add me to your server: https://discordapp.com/oauth2/authorize?client_id=531212856297914383&scope=bot&permissions=3525632"
