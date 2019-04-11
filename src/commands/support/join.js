@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require("discord.js-commando");
 const { oneLine } = require("common-tags");
 const { RichEmbed } = require("discord.js");
 
@@ -20,7 +20,6 @@ module.exports = class JoinCommand extends Command {
     });
   }
 
-  
   async run(message) {
     message.channel.startTyping();
     const embed = new RichEmbed()

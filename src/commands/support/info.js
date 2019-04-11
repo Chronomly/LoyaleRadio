@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require("discord.js-commando");
 const { oneLine } = require("common-tags");
 const { RichEmbed } = require("discord.js");
 const os = require("os");
@@ -20,7 +20,6 @@ module.exports = class InfoCommand extends Command {
     });
   }
 
-  
   async run(message) {
     let host;
     if (os.hostname() === "ubuntuServer") {

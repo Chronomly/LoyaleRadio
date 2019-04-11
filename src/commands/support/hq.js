@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require("discord.js-commando");
 const { oneLine } = require("common-tags");
 
 module.exports = class HQCommand extends Command {
@@ -18,7 +18,6 @@ module.exports = class HQCommand extends Command {
     });
   }
 
-  
   async run(message) {
     message.author.send(`**Need help?**
 Come join the official SmoreSoftware Discord server!

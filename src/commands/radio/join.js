@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+const { Command } = require("discord.js-commando");
 const { oneLine } = require("common-tags");
 
 module.exports = class RadioJoinCommand extends Command {
@@ -17,7 +17,6 @@ module.exports = class RadioJoinCommand extends Command {
     });
   }
 
-  
   async run(msg) {
     this.client.radio.joinBroadcast(msg);
   }
