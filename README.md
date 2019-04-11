@@ -1,4 +1,7 @@
 # Loyale
+
+[![DeepScan grade](https://deepscan.io/api/teams/3387/projects/5027/branches/39181/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=3387&pid=5027&bid=39181)
+
 Loyale is a Discord bot made using JavaScript and Discord.js. It are being actively developed with new features added and tested almost every week.
 
 <!--Not actually for Represent [![Discord](https://discordapp.com/api/guilds/476150997488500747/embed.png)](https://discord.gg/SFytdyB) -->
