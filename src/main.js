@@ -63,7 +63,7 @@ client
 		`);
   })
   .on("ready", () => {
-    Radio.setupAutoBroadcast(client);
+    Radio.setupMusicBroadcast();
   });
 
 client
