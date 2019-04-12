@@ -83,4 +83,4 @@ client.broadcast.on("end", () => {
   client.radio.findSong();
 });
 
-client.login(config.token[0]);
+client.login(config.token).catch(logger.scope("login").error);
