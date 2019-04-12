@@ -1,4 +1,6 @@
 /* eslint-disable no-console */
+require("dotenv").config();
+
 const { CommandoClient, FriendlyError, SQLiteProvider } = require("discord.js-commando");
 const Discord = require("discord.js");
 const path = require("path");
