@@ -68,7 +68,8 @@ client
 
 client
   .setProvider(sqlite.open(path.join(__dirname, "database.sqlite3")).then(db => new SQLiteProvider(db)))
-  .catch(logger.error);
+  .then(logger.scope("provider").success("SQLite provider set successfully"))
+  .catch(logger.scope("provider").error);
 
 client.registry
   .registerDefaults()
