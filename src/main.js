@@ -63,7 +63,7 @@ client
 		`);
   })
   .on("ready", () => {
-    client.radio.setupAutoBroadcast(client);
+    Radio.setupAutoBroadcast(client);
   });
 
 client
@@ -80,4 +80,4 @@ client.broadcast.on("end", () => {
   client.radio.findSong();
 });
 
-client.login(config.token);
+client.login(config.token[0]);
