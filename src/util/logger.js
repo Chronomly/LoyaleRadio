@@ -3,6 +3,6 @@ const config = require("../config");
 
 const logger = new Signale();
 
-logger.addSecrets([config.token]);
+logger.addSecrets(config.token);
 
 module.exports = logger;
