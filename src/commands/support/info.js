@@ -33,13 +33,12 @@ module.exports = class InfoCommand extends Command {
       .setTitle(":information_source:")
       .addField(
         "Main information:",
-        "I am a Discord Bot made in **JavaScript** using the Discord API Wrapper **Discord.js** on the framework **Discord.js-Commando**",
-        false
+        "I am a Discord Bot made in **JavaScript** using the Discord API Wrapper **Discord.js** on the framework **Discord.js-Commando**"
       )
-      .addField("Developers:", "• Chronomly • Jdender~ •", false)
+      .addField("Developers:", "• Chronomly • Jdender~ •")
       .addField("Server Count:", `${this.client.guilds.size}`, true)
       .addField("Host", host, true)
       .setTimestamp();
-    message.channel.send({ embed });
+    return message.replyEmbed({ embed });
   }
 };

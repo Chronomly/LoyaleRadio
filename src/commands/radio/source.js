@@ -1,5 +1,4 @@
 const { Command } = require("discord.js-commando");
-const { oneLine } = require("common-tags");
 
 module.exports = class RadioSourceCommand extends Command {
   constructor(client) {
@@ -8,9 +7,7 @@ module.exports = class RadioSourceCommand extends Command {
       group: "radio",
       memberName: "source",
       description: "Starts a LoyaleRadio broadcast.",
-      details: oneLine`
-      Starts a LoyaleRadio broadcast.
-			`,
+      details: "Starts a LoyaleRadio broadcast.",
       examples: ["join"],
       guildOnly: true,
       guarded: true

@@ -10,7 +10,7 @@ module.exports = class InviteCommand extends Command {
       memberName: "invite",
       description: "Sends an invite for the bot.",
       details: oneLine`
-      Do you like SmoreTel? Do you want it on your very own server?
+      Do you like LoyaleRadio? Do you want it on your very own server?
       This command sends an invite to the bot so you can spread the smore love!
 			`,
       examples: ["invite"],
@@ -20,7 +20,7 @@ module.exports = class InviteCommand extends Command {
   }
 
   async run(message) {
-    message.channel.send(
+    return message.reply(
       "Click here to add me to your server: https://discordapp.com/oauth2/authorize?client_id=531212856297914383&scope=bot&permissions=3525632"
     );
   }

@@ -1,5 +1,4 @@
 const { Command } = require("discord.js-commando");
-const { oneLine } = require("common-tags");
 
 module.exports = class RadioLeaveCommand extends Command {
   constructor(client) {
@@ -8,9 +7,7 @@ module.exports = class RadioLeaveCommand extends Command {
       group: "radio",
       memberName: "leave",
       description: "Leaves the current voice channel",
-      details: oneLine`
-      Leaves the current voice channel.
-			`,
+      details: "Leaves the current voice channel.",
       examples: ["leave"],
       guildOnly: true,
       guarded: true
@@ -21,7 +18,7 @@ module.exports = class RadioLeaveCommand extends Command {
     if (msg.guild.voiceConnection) {
       msg.guild.voiceConnection.disconnect();
     } else {
-      msg.reply("You is big stupid");
+      return msg.reply("You is big stupid");
     }
   }
 };

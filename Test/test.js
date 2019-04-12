@@ -55,7 +55,7 @@ client
             }
           });
         })
-        .catch(console.log);
+        .catch(console.error);
     }
     if (msg.content.startsWith(`${config.prefix}leave`)) {
       const [command, ...channelName] = msg.content.split(" ");

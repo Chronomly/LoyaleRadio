@@ -5,6 +5,7 @@ const path = require("path");
 const { oneLine } = require("common-tags");
 const sqlite = require("sqlite");
 const config = require("./config");
+const logger = require("./util/logger");
 
 const client = new CommandoClient({
   owner: "251383432331001856",
@@ -13,65 +14,67 @@ const client = new CommandoClient({
 const Radio = require("./radio.js")(client);
 
 client
-  .on("error", console.error)
-  .on("warn", console.warn)
-  .on("debug", console.log)
+  .on("error", logger.error)
+  .on("warn", logger.warn)
+  .on("debug", logger.debug)
   .on("ready", () => {
     client.Discord = Discord;
-    console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
+    logger.success(`Client ready; logged in as ${client.user.tag} (${client.user.id})`);
   })
   .on("disconnect", () => {
-    console.warn("Disconnected!");
+    logger.warn("Disconnected!");
   })
   .on("reconnecting", () => {
-    console.warn("Reconnecting...");
+    logger.pending("Reconnecting...");
   })
   .on("commandError", (cmd, err) => {
     if (err instanceof FriendlyError) return;
-    console.error(`Error in command ${cmd.groupID}:${cmd.memberName}`, err);
+    logger.error(`Error in command ${cmd.groupID}:${cmd.memberName}`, err);
   })
   .on("commandBlocked", (msg, reason) => {
-    console.log(oneLine`
+    logger.debug(oneLine`
 			Command ${msg.command ? `${msg.command.groupID}:${msg.command.memberName}` : ""}
 			blocked; ${reason}
 		`);
   })
   .on("commandPrefixChange", (guild, prefix) => {
-    console.log(oneLine`
+    const commandPrefixChangeLogger = logger.scope("command prefix change");
+    commandPrefixChangeLogger.info(oneLine`
 			Prefix ${prefix === "" ? "removed" : `changed to ${prefix || "the default"}`}
 			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
 		`);
   })
   .on("commandStatusChange", (guild, command, enabled) => {
-    console.log(oneLine`
+    const commandStatusChangeLogger = logger.scope("command status change");
+    commandStatusChangeLogger.info(oneLine`
 			Command ${command.groupID}:${command.memberName}
 			${enabled ? "enabled" : "disabled"}
 			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
 		`);
   })
   .on("groupStatusChange", (guild, group, enabled) => {
-    console.log(oneLine`
+    const groupStatusChangeLogger = logger.scope("group status change");
+    groupStatusChangeLogger.info(oneLine`
 			Group ${group.id}
 			${enabled ? "enabled" : "disabled"}
 			${guild ? `in guild ${guild.name} (${guild.id})` : "globally"}.
 		`);
+  })
+  .on("ready", () => {
+    client.radio.setupAutoBroadcast(client);
   });
 
 client
   .setProvider(sqlite.open(path.join(__dirname, "database.sqlite3")).then(db => new SQLiteProvider(db)))
-  .catch(console.error);
+  .catch(logger.error);
 
 client.registry
+  .registerDefaults()
   .registerGroups([["general", "General"], ["radio", "Radio"], ["support", "Support"], ["control", "Owners"]])
-  .registerCommandsIn(path.join(__dirname, "commands"))
-  .registerDefaults();
+  .registerCommandsIn(path.join(__dirname, "commands"));
 
 client.broadcast.on("end", () => {
   client.radio.findSong();
-});
-
-client.on("ready", () => {
-  client.radio.setupAutoBroadcast(client);
 });
 
 client.login(config.token);

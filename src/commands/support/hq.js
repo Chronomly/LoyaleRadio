@@ -1,5 +1,5 @@
 const { Command } = require("discord.js-commando");
-const { oneLine } = require("common-tags");
+const { oneLine, stripIndents } = require("common-tags");
 
 module.exports = class HQCommand extends Command {
   constructor(client) {
@@ -18,14 +18,13 @@ module.exports = class HQCommand extends Command {
     });
   }
 
-  async run(message) {
-    message.author.send(`**Need help?**
-Come join the official SmoreSoftware Discord server!
-https://discord.gg/6P6MNAU
-Need some quick help? Call the developers!
-Do \`${message.guild ? message.guild.commandPrefix : "s."}support\`
-Want to suggest something?
-Do \`${message.guild ? message.guild.commandPrefix : "s."}suggest\``);
-    await message.reply("Check your DMs!");
+  run(message) {
+    return message.reply(stripIndents`**Need help?**
+    Come join the official SmoreSoftware Discord server!
+    https://discord.gg/6P6MNAU
+    Need some quick help? Call the developers!
+    ${message.anyUsage("support")}
+    Want to suggest something?
+    ${message.anyUsage("suggest")}`);
   }
 };

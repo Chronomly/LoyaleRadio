@@ -1,6 +1,7 @@
 module.exports = client => (client.radio = new Radio(client));
 const { songs } = require("./songs.json");
 const ytdl = require("ytdl-core");
+const signale = require("signale");
 
 class Radio {
   constructor(client) {
@@ -23,28 +24,29 @@ class Radio {
 
   setupAutoBroadcast(client) {
     this.findSong();
-    // let ON_AIRchannel = client.channels.get('539612640692142100')
-    // if(ON_AIRchannel) {
-    //     ON_AIRchannel.join().then(() => {
-    //         client.channels.get('539588610173698068').send(`Ready! Joined \`${ON_AIRchannel.name}\``)//.send(`Ready! Joined \`${ON_AIRchannel.name}\``)
-    //     })
+    // let onAirChannel = client.channels.get("539612640692142100")
+    // if (onAirChannel) {
+    //   onAirChannel.join().then(() => {
+    //     client.channels.get("539588610173698068").send(`Ready! Joined \`${onAirChannel.name}\``); //.send(`Ready! Joined \`${ON_AIRchannel.name}\``)
+    //   });
     // } else {
-    //     msg.channel.send('Error')
+    //   msg.channel.send("Error");
     // }
-    // ON_AIRchannel = null
+    // onAirChannel = null;
     // https://www.youtube.com/watch?v=7AZinyIUhOo
     // https://www.youtube.com/watch?v=EbnH3VHzhu8
   }
 
   joinBroadcast(msg) {
+    const joinBroadcastLogger = signale.scope("join broadcast");
     if (msg.member.voiceChannel) {
       msg.member.voiceChannel
         .join()
         .then(connection => {
-          const dispatcher = connection.playBroadcast(this.client.broadcast);
+          connection.playBroadcast(this.client.broadcast);
           msg.reply("Playing.");
         })
-        .catch(console.error);
+        .catch(joinBroadcastLogger.error);
     } else return msg.reply("You're not in a voice channel here.");
   }
 
