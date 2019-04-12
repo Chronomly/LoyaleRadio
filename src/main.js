@@ -8,6 +8,9 @@ const { oneLine } = require("common-tags");
 const sqlite = require("sqlite");
 const config = require("./config");
 const logger = require("./util/logger");
+const package = require("../package.json");
+
+logger.start(`LoyaleRadio version v${package.version}`);
 
 const client = new CommandoClient({
   owner: "251383432331001856",
