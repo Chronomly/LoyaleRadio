@@ -14,7 +14,8 @@ module.exports = class RadioSourceCommand extends Command {
     });
   }
 
-  async run(msg) {
+  run(msg) {
     this.client.radio.setupBroadcast(msg);
+    return null;
   }
 };

@@ -14,7 +14,7 @@ module.exports = class RadioVolumeCommand extends Command {
     });
   }
 
-  async run(msg) {
-    msg.reply("I'm sorry but in order to turn down the volume you must turn down the volume of me on discord");
+  run(msg) {
+    return msg.reply("I'm sorry but in order to turn down the volume you must turn down the volume of me on discord");
   }
 };

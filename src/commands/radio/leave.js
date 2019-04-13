@@ -14,9 +14,10 @@ module.exports = class RadioLeaveCommand extends Command {
     });
   }
 
-  async run(msg) {
+  run(msg) {
     if (msg.guild.voiceConnection) {
       msg.guild.voiceConnection.disconnect();
+      return null;
     } else {
       return msg.reply("You is big stupid");
     }

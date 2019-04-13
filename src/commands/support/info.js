@@ -20,7 +20,7 @@ module.exports = class InfoCommand extends Command {
     });
   }
 
-  async run(message) {
+  run(message) {
     let host;
     if (os.hostname() === "ubuntuServer") {
       host = "Kaydax";

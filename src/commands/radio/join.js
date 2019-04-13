@@ -14,7 +14,9 @@ module.exports = class RadioJoinCommand extends Command {
     });
   }
 
-  async run(msg) {
+  run(msg) {
     this.client.radio.joinBroadcast(msg);
+
+    return null;
   }
 };

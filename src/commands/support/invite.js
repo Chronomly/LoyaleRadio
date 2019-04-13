@@ -19,7 +19,7 @@ module.exports = class InviteCommand extends Command {
     });
   }
 
-  async run(message) {
+  run(message) {
     return message.reply(
       "Click here to add me to your server: https://discordapp.com/oauth2/authorize?client_id=531212856297914383&scope=bot&permissions=3525632"
     );

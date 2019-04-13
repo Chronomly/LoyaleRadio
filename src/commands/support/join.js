@@ -20,7 +20,7 @@ module.exports = class JoinCommand extends Command {
     });
   }
 
-  async run(message) {
+  run(message) {
     const embed = new RichEmbed()
       .setAuthor(this.client.user.username, this.client.user.avatarURL)
       .setColor(0x0099cc)
